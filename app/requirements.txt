@@ -1,0 +1,9 @@
+fastapi==0.109.0
+uvicorn[standard]==0.23.2
+sqlalchemy==2.0.20
+pandas==2.1.1
+scikit-learn==1.3.0
+passlib
+python-jose==3.3.0
+python-multipart==0.0.6
+pydantic==2.6.0
