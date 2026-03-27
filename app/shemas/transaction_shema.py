@@ -1,6 +1,8 @@
 from pydantic import BaseModel
 from datetime import datetime
+
 from sqlalchemy import Column, Boolean
+
 
 
 class TransactionCreate(BaseModel):
@@ -14,7 +16,9 @@ class TransactionResponse(BaseModel):
     currency: str
     description: str | None
     created_at: datetime
+
     is_read : bool
+
 
     class Config:
         from_attributes = True

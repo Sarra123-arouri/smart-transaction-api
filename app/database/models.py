@@ -25,10 +25,10 @@ class Transaction(Base):
     amount = Column(Float, nullable=False)
     currency = Column(String, default="USD")
     description = Column(String)
+    created_at = Column(DateTime, default=datetime.utcnow)
     # 💡 On ajoute 'status' ou 'is_fraud' pour corriger l'erreur de tout à l'heure
     status = Column(String, default="normal") 
     is_fraud = Column(Boolean, default=False) 
     created_at = Column(DateTime, default=datetime.utcnow)
     is_read = Column(Boolean, default=False)
-
     user_id = Column(Integer, ForeignKey("users.id"))

@@ -16,6 +16,9 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
     if existing_user:
         raise HTTPException(status_code=400, detail="Email already registered")
     
+<<<<<<< HEAD
+    new_user = User(email=user.email, hashed_password=hash_password(user.password))
+=======
     # Mapper tous les champs du schéma vers le modèle SQLAlchemy
     new_user = User(
         email=user.email,
@@ -29,6 +32,7 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
         hashed_password=hash_password(user.password)
         # date_creation est géré par le default=datetime.now dans le modèle DB
     )
+>>>>>>> master
 
     db.add(new_user)
     db.commit()
@@ -52,6 +56,9 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
     user = db.query(User).filter(User.email == email).first()
     if not user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token")
+<<<<<<< HEAD
+    return user
+=======
     return user
 @router.post("/logout")
 def logout():
@@ -60,3 +67,4 @@ def logout():
 @router.get("/me", response_model=UserResponse)
 def get_profile(current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     return current_user
+>>>>>>> master
