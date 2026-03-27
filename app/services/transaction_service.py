@@ -12,3 +12,5 @@ def create_transaction(db: Session, user_id: int, amount: float, currency: str, 
     db.commit()
     db.refresh(transaction)
     return transaction
+def get_all_transactions(db: Session, user_id: int):
+    return db.query(Transaction).filter(Transaction.user_id == user_id).all()
