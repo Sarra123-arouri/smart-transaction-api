@@ -18,6 +18,9 @@ class TransactionResponse(BaseModel):
     created_at: datetime
 
     is_read : bool
+    is_fraud: bool            # Pour que le badge passe au rouge
+    fraud_probability: float  # Pour afficher l'indice de risque (%)
+    status: str | None
 
 
     class Config:

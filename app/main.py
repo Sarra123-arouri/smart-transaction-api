@@ -19,6 +19,7 @@ app.include_router(fraud_router)
 origins = [
   
     "http://localhost:4200",    # si tu utilises le port standard ng serve
+    "http://127.0.0.1:4200"
 ]
 
 app.add_middleware(

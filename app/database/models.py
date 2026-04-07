@@ -29,6 +29,12 @@ class Transaction(Base):
     # 💡 On ajoute 'status' ou 'is_fraud' pour corriger l'erreur de tout à l'heure
     status = Column(String, default="normal") 
     is_fraud = Column(Boolean, default=False) 
+    fraud_probability = Column(Float, default=0.0)
     created_at = Column(DateTime, default=datetime.utcnow)
     is_read = Column(Boolean, default=False)
+
+
     user_id = Column(Integer, ForeignKey("users.id"))
+    verification_code = Column(String, nullable=True) 
+    status = Column(String, default="APPROVED")
+
